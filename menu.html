@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Menu - Swaranjali Restaurants & Cafe</title>
+    <style>
+        /* 1. STRICT ZERO-MARGIN RESET */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow-x: hidden;
+            font-family: 'Georgia', serif;
+            background: #2b080b;
+            color: #fff;
+        }
+
+        /* 2. NAVIGATION BAR */
+        .navbar {
+            background: rgba(26, 15, 13, 0.98);
+            border-bottom: 1px solid rgba(229, 195, 120, 0.3);
+            padding: 12px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            position: relative;
+            top: 0;
+            z-index: 1000;
+            margin-top: 0 !important;
+            overflow: visible !important;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            overflow: visible !important;
+        }
+
+        .nav-logo img {
+            height: 85px;
+            width: auto;
+            display: block;
+            transform: scale(1.6);
+            transform-origin: left center;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            font-family: sans-serif;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #E5C378;
+        }
+
+        .nav-btn {
+            background: #E5C378;
+            color: #2b080b !important;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .nav-btn:hover {
+            background: #fff !important;
+        }
+
+        /* 3. HERO SECTION */
+        .menu-hero-section {
+            width: 100%;
+            background: url('hero menu.png') center/cover no-repeat;
+            padding: 90px 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(229, 195, 120, 0.3);
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 4. SEARCH & FILTER TABS */
+        .search-container { 
+            margin: 40px 0 25px; 
+            text-align: center; 
+        }
+
+        #menuSearch { 
+            width: 100%; 
+            max-width: 600px; 
+            padding: 14px 22px; 
+            border: 1px solid rgba(229, 195, 120, 0.4); 
+            border-radius: 50px; 
+            font-size: 1rem; 
+            outline: none; 
+            background: rgba(0, 0, 0, 0.4); 
+            color: #E5C378; 
+            font-family: sans-serif; 
+        }
+
+        #menuSearch::placeholder { 
+            color: rgba(229, 195, 120, 0.6); 
+        }
+
+        .menu-tabs { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 12px; 
+            margin-bottom: 45px; 
+        }
+
+        .tab-btn { 
+            padding: 10px 24px; 
+            border-radius: 50px; 
+            border: 1px solid rgba(229, 195, 120, 0.4); 
+            background: rgba(45, 10, 14, 0.7); 
+            color: #E5C378; 
+            cursor: pointer; 
+            transition: 0.3s; 
+            font-size: 0.85rem; 
+            letter-spacing: 1.5px; 
+        }
+
+        .tab-btn.active, .tab-btn:hover { 
+            background: #E5C378; 
+            color: #2b080b; 
+            font-weight: bold; 
+        }
+
+        /* 5. MENU GRID & CARDS */
+        .menu-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 22px; 
+        }
+
+        .menu-item-card { 
+            background: rgba(50, 12, 16, 0.85); 
+            padding: 24px; 
+            border-radius: 12px; 
+            border: 1px solid rgba(229, 195, 120, 0.2); 
+            transition: 0.3s; 
+        }
+
+        .menu-item-card:hover { 
+            border-color: #E5C378; 
+        }
+
+        .item-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: baseline; 
+            margin-bottom: 8px; 
+            border-bottom: 1px dashed rgba(229, 195, 120, 0.2); 
+            padding-bottom: 6px; 
+        }
+
+        .item-header h4 { 
+            margin: 0; 
+            color: #E5C378; 
+            font-size: 1.2rem; 
+            font-weight: normal; 
+        }
+
+        .price { 
+            color: #fff; 
+            font-weight: bold; 
+            font-size: 1.05rem; 
+        }
+
+        .menu-item-card p { 
+            color: #d8c2be; 
+            font-size: 0.9rem; 
+            margin: 8px 0 0; 
+            line-height: 1.4; 
+            font-family: sans-serif; 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">
+            <img src="logo.png" alt="Swaranjali Logo">
+        </a>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html#home">Home</a>
+            <a href="index.html#about">About Us</a>
+            <a href="menu.html" class="active">Menu</a>
+            <a href="index.html#promotions" class="nav-item">Buffet & Tiffins</a>
+            <a href="index.html#celebrations">Celebrations & Packages</a>
+            <a href="index.html#gallery">Gallery</a>
+            <a href="index.html#contact" class="nav-btn">Book A Table</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+        <section class="menu-hero-section">
+        <div class="container">
+            <span style="color: #E5C378; font-size: 0.9rem; letter-spacing: 3px; font-weight: 600; text-transform: uppercase;">OUR FAVOURITES</span>
+            <h1 style="font-size: 3.5rem; color: #fff; margin: 15px 0; font-weight: normal; letter-spacing: 1px;">The Menu</h1>
+            <p style="color: #e0d5d3; font-size: 1.15rem; max-width: 650px; margin: 0 auto; font-family: sans-serif; line-height: 1.6;">
+                Authentic Indian vegetarian cuisine across multiple sections, crafted fresh daily in A2 Cow Desi Ghee & Pure Oils.
+            </p>
+            <div style="display: flex; align-items: center; justify-content: center; margin-top: 30px;">
+                <span style="height: 1px; width: 60px; background: rgba(229, 195, 120, 0.5);"></span>
+                <span style="display: inline-block; width: 6px; height: 6px; background: #E5C378; transform: rotate(45deg); margin: 0 10px;"></span>
+                <span style="height: 1px; width: 60px; background: rgba(229, 195, 120, 0.5);"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT SECTION -->
+    <section style="padding: 50px 0;">
+        <div class="container">
+            
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" id="menuSearch" onkeyup="searchMenu()" placeholder="Search a dish, say dal makhani, paneer, roti, dosa, thali...">
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="menu-tabs">
+                <button class="tab-btn active" onclick="filterCategory('all', event)">ALL</button>
+                <button class="tab-btn" onclick="filterCategory('appetizers', event)">APPETIZERS</button>
+                <button class="tab-btn" onclick="filterCategory('khichdi', event)">HEARTH & FRY</button>
+                <button class="tab-btn" onclick="filterCategory('north', event)">NORTH INDIAN</button>
+                <button class="tab-btn" onclick="filterCategory('breads', event)">BREADS & RICE</button>
+                <button class="tab-btn" onclick="filterCategory('south', event)">SOUTH INDIAN</button>
+                <button class="tab-btn" onclick="filterCategory('thalis', event)">HERITAGE THALIS</button>
+                <button class="tab-btn" onclick="filterCategory('drinks', event)">BEVERAGES</button>
+                <button class="tab-btn" onclick="filterCategory('sweets', event)">SWEETS & SCOOPS</button>
+            </div>
+
+            <!-- Menu Items Grid -->
+            <div class="menu-grid" id="menuGrid">
+                
+                <!-- 1. APPETIZERS -->
+                <div class="menu-item-card" data-category="appetizers">
+                    <div class="item-header"><h4>French Fries / Peri Peri Fries</h4><span class="price">₹171 / ₹206</span></div>
+                    <p>Crispy golden fries with classic salt or spicy peri peri.</p>
+                </div>
+                <div class="menu-item-card" data-category="appetizers">
+                    <div class="item-header"><h4>Veg Burger</h4><span class="price">₹217</span></div>
+                    <p>Spiced veggie patty layered with fresh tomato and creamy mayo in a toasted bun.</p>
+                </div>
+                <div class="menu-item-card" data-category="appetizers">
+                    <div class="item-header"><h4>Coleslaw Sandwich</h4><span class="price">₹206</span></div>
+                    <p>Toasted bread filled with creamy slaw and crisp veggie crunch.</p>
+                </div>
+                <div class="menu-item-card" data-category="appetizers">
+                    <div class="item-header"><h4>Veg Grilled Sandwich</h4><span class="price">₹229</span></div>
+                    <p>Crisp-grilled bread stuffed with spiced veggies and melty goodness.</p>
+                </div>
+                <div class="menu-item-card" data-category="appetizers">
+                    <div class="item-header"><h4>Cheese Corn Sandwich</h4><span class="price">₹229</span></div>
+                    <p>Toasted bread packed with melty cheese and sweet corn crunch.</p>
+                </div>
+                <div class="menu-item-card" data-category="appetizers">
+                    <div class="item-header"><h4>Paneer Grilled Sandwich</h4><span class="price">₹252</span></div>
+                    <p>Crisp-grilled bread filled with spiced paneer and melty veggie goodness.</p>
+                </div>
+                <div class="menu-item-card" data-category="appetizers">
+                    <div class="item-header"><h4>Foxnut Chaat</h4><span class="price">₹229</span></div>
+                    <p>Crunchy roasted makhana tossed in tangy chutneys, spices, and fresh toppings.</p>
+                </div>
+                <div class="menu-item-card" data-category="appetizers">
+                    <div class="item-header"><h4>Sweet Corn Chaat / Charred Mexican Corn</h4><span class="price">₹206 / ₹299</span></div>
+                    <p>Juicy sweet corn tossed with tangy spices, herbs, and lime zest.</p>
+                </div>
+                <div class="menu-item-card" data-category="appetizers">
+                    <div class="item-header"><h4>Idli Chaat</h4><span class="price">₹171</span></div>
+                    <p>Soft idlis tossed with tangy chutneys, spices, and crunchy toppings.</p>
+                </div>
+                <div class="menu-item-card" data-category="appetizers">
+                    <div class="item-header"><h4>Bhel Puri</h4><span class="price">₹171</span></div>
+                    <p>Tangy puffed rice mix with crunchy sev, veggies, and zesty chutneys.</p>
+                </div>
+                <div class="menu-item-card" data-category="appetizers">
+                    <div class="item-header"><h4>Pav Bhaji</h4><span class="price">₹171</span></div>
+                    <p>Spicy mashed vegetable curry served with toasted buttery pav.</p>
+                </div>
+                <div class="menu-item-card" data-category="appetizers">
+                    <div class="item-header"><h4>Crispy Paneer Fingers (6 Pcs)</h4><span class="price">₹229</span></div>
+                    <p>Golden paneer fingers, lightly spiced.</p>
+                </div>
+                <div class="menu-item-card" data-category="appetizers">
+                    <div class="item-header"><h4>Aaloo Tikki</h4><span class="price">₹229</span></div>
+                    <p>Crisp spiced potato patties.</p>
+                </div>
+                <div class="menu-item-card" data-category="appetizers">
+                    <div class="item-header"><h4>Dahi Ke Sholey</h4><span class="price">₹229</span></div>
+                    <p>Stuffed bread rolls with hung curd filling.</p>
+                </div>
+                <div class="menu-item-card" data-category="appetizers">
+                    <div class="item-header"><h4>Dahi Ke Kabab</h4><span class="price">₹229</span></div>
+                    <p>Crisp, creamy spiced yogurt patties.</p>
+                </div>
+                <div class="menu-item-card" data-category="appetizers">
+                    <div class="item-header"><h4>Hare Bhare Kabab</h4><span class="price">₹229</span></div>
+                    <p>Spinach & veggie patties spiced & grilled.</p>
+                </div>
+                <div class="menu-item-card" data-category="appetizers">
+                    <div class="item-header"><h4>Tomato Soup / Sweet Corn / Hot & Sour</h4><span class="price">₹171 - ₹183</span></div>
+                    <p>Creamy tomato blend, golden sweet corn, or spicy Indo-Chinese vegetable broth.</p>
+                </div>
+
+                <!-- 2. HEARTH & FRY -->
+                <div class="menu-item-card" data-category="khichdi">
+                    <div class="item-header"><h4>Dal Khichdi / Moong Dal Khichdi</h4><span class="price">₹217</span></div>
+                    <p>Comforting blend of lentils/yellow moong dal and rice, slow-cooked with mild spices.</p>
+                </div>
+                <div class="menu-item-card" data-category="khichdi">
+                    <div class="item-header"><h4>Sabudana Khichdi</h4><span class="price">₹217</span></div>
+                    <p>Light, nutty stir-fry of soaked sago pearls with peanuts, potatoes, and mild spices.</p>
+                </div>
+                <div class="menu-item-card" data-category="khichdi">
+                    <div class="item-header"><h4>Vegetable Oats Khichdi</h4><span class="price">₹229</span></div>
+                    <p>Wholesome blend of oats, veggies, and mild spices for a light, nourishing meal.</p>
+                </div>
+                <div class="menu-item-card" data-category="khichdi">
+                    <div class="item-header"><h4>Mix / Paneer / Onion / Sweet Corn Fritters</h4><span class="price">₹171 - ₹229</span></div>
+                    <p>Crisp golden bites of spiced veggies, paneer, onion, or sweet corn deep-fried for crunchy comfort.</p>
+                </div>
+                <div class="menu-item-card" data-category="khichdi">
+                    <div class="item-header"><h4>Chole Poori / Bhature</h4><span class="price">₹171</span></div>
+                    <p>Fluffy deep-fried pooris/bhature served with spicy, tangy chickpea curry.</p>
+                </div>
+                <div class="menu-item-card" data-category="khichdi">
+                    <div class="item-header"><h4>Poori & Sabzi</h4><span class="price">₹171</span></div>
+                    <p>Fluffy deep-fried pooris paired with spiced vegetable & potato curry.</p>
+                </div>
+                <div class="menu-item-card" data-category="khichdi">
+                    <div class="item-header"><h4>Healthy Curation Meal 1</h4><span class="price">₹249</span></div>
+                    <p>Choice of Khichdi + Raita (Veg/Boondi/Lassi) + Tea/Filter Coffee + Pickle + Papad.</p>
+                </div>
+                <div class="menu-item-card" data-category="khichdi">
+                    <div class="item-header"><h4>Healthy Curation Meal 2</h4><span class="price">₹249</span></div>
+                    <p>Curd Rice / Pongal + Appalam + Filter Coffee / Tea + Pickle.</p>
+                </div>
+
+                <!-- 3. NORTH INDIAN MAIN COURSE -->
+                <div class="menu-item-card" data-category="north">
+                    <div class="item-header"><h4>Dal Fry</h4><span class="price">₹344</span></div>
+                    <p>Yellow lentils tempered with aromatic spices.</p>
+                </div>
+                <div class="menu-item-card" data-category="north">
+                    <div class="item-header"><h4>Dal Tadka</h4><span class="price">₹344</span></div>
+                    <p>Smoky yellow lentils tempered with ghee and bold spices.</p>
+                </div>
+                <div class="menu-item-card" data-category="north">
+                    <div class="item-header"><h4>Dal Makhani</h4><span class="price">₹378</span></div>
+                    <p>Slow-cooked black lentils in buttery, spiced tomato cream gravy.</p>
+                </div>
+                <div class="menu-item-card" data-category="north">
+                    <div class="item-header"><h4>Jaal Farezi</h4><span class="price">₹344</span></div>
+                    <p>Spicy stir-fried paneer and veggies in tangy sauce.</p>
+                </div>
+                <div class="menu-item-card" data-category="north">
+                    <div class="item-header"><h4>Aaloo Gobi Adraki</h4><span class="price">₹344</span></div>
+                    <p>Potatoes and cauliflower sautéed with gingery, spiced masala blend.</p>
+                </div>
+                <div class="menu-item-card" data-category="north">
+                    <div class="item-header"><h4>Dum Aaloo</h4><span class="price">₹344</span></div>
+                    <p>Baby potatoes slow-cooked in rich, spiced tomato gravy.</p>
+                </div>
+                <div class="menu-item-card" data-category="north">
+                    <div class="item-header"><h4>Aaloo Matar</h4><span class="price">₹344</span></div>
+                    <p>Potatoes and peas cooked in spiced tomato-onion gravy.</p>
+                </div>
+                <div class="menu-item-card" data-category="north">
+                    <div class="item-header"><h4>Malai Kofta</h4><span class="price">₹378</span></div>
+                    <p>Paneer-potato dumplings simmered in creamy, luxurious gravy.</p>
+                </div>
+                <div class="menu-item-card" data-category="north">
+                    <div class="item-header"><h4>Shaam Savera</h4><span class="price">₹378</span></div>
+                    <p>Spinach-paneer koftas simmered in rich tomato-cashew gravy.</p>
+                </div>
+                <div class="menu-item-card" data-category="north">
+                    <div class="item-header"><h4>Amritsari Chole</h4><span class="price">₹344</span></div>
+                    <p>Robust chickpeas simmered in spiced tomato gravy, authentic Amritsari-style.</p>
+                </div>
+                <div class="menu-item-card" data-category="north">
+                    <div class="item-header"><h4>Rajma (Kidney Beans)</h4><span class="price">₹401</span></div>
+                    <p>Slow-cooked red kidney beans in a rich, spiced onion-tomato gravy.</p>
+                </div>
+                <div class="menu-item-card" data-category="north">
+                    <div class="item-header"><h4>Tawa Paneer</h4><span class="price">₹401</span></div>
+                    <p>Paneer cubes tossed on high flame in spicy semi-dry masala.</p>
+                </div>
+                <div class="menu-item-card" data-category="north">
+                    <div class="item-header"><h4>Kadhai Paneer</h4><span class="price">₹401</span></div>
+                    <p>Wok-tossed paneer with bell peppers in bold, spiced tomato masala.</p>
+                </div>
+                <div class="menu-item-card" data-category="north">
+                    <div class="item-header"><h4>Shahi Paneer</h4><span class="price">₹401</span></div>
+                    <p>Paneer simmered in creamy cashew gravy with saffron and aromatic spices.</p>
+                </div>
+                <div class="menu-item-card" data-category="north">
+                    <div class="item-header"><h4>Palak Paneer (Seasonal)</h4><span class="price">₹401</span></div>
+                    <p>Seasonal fresh spinach purée cooked with tender paneer in spiced gravy.</p>
+                </div>
+                <div class="menu-item-card" data-category="north">
+                    <div class="item-header"><h4>Matar Paneer</h4><span class="price">₹401</span></div>
+                    <p>Paneer cubes and green peas simmered in spiced tomato curry.</p>
+                </div>
+                <div class="menu-item-card" data-category="north">
+                    <div class="item-header"><h4>Paneer Do Pyaza</h4><span class="price">₹401</span></div>
+                    <p>Paneer cubes cooked with double caramelized onions in spiced gravy.</p>
+                </div>
+                <div class="menu-item-card" data-category="north">
+                    <div class="item-header"><h4>Paneer Butter Masala</h4><span class="price">₹436</span></div>
+                    <p>Paneer cubes simmered in buttery tomato-cashew cream gravy.</p>
+                </div>
+                <div class="menu-item-card" data-category="north">
+                    <div class="item-header"><h4>Paneer Lababdar</h4><span class="price">₹436</span></div>
+                    <p>Paneer cubes in rich, luscious tomato gravy with subtle spices.</p>
+                </div>
+                <div class="menu-item-card" data-category="north">
+                    <div class="item-header"><h4>Paneer Bhurji</h4><span class="price">₹436</span></div>
+                    <p>Crumbled paneer sautéed with fresh onions, tomatoes, and herbs.</p>
+                </div>
+
+                <!-- 4. BREADS & RICE -->
+                <div class="menu-item-card" data-category="breads">
+                    <div class="item-header"><h4>Wheat Roti / Wheat Poori</h4><span class="price">₹23 / ₹35</span></div>
+                    <p>Soft whole wheat flatbread or puffed golden deep-fried poori.</p>
+                </div>
+                <div class="menu-item-card" data-category="breads">
+                    <div class="item-header"><h4>Ragi Roti / Bajra Roti / Missi Roti</h4><span class="price">₹35</span></div>
+                    <p>Wholesome finger millet, rustic pearl millet, or spiced gram flour flatbreads.</p>
+                </div>
+                <div class="menu-item-card" data-category="breads">
+                    <div class="item-header"><h4>Kuttu Poori / Bajra Poori</h4><span class="price">₹46</span></div>
+                    <p>Gluten-free buckwheat pooris or deep-fried pearl millet pooris.</p>
+                </div>
+                <div class="menu-item-card" data-category="breads">
+                    <div class="item-header"><h4>Rumali Roti</h4><span class="price">₹23</span></div>
+                    <p>Ultra-thin, hand-stretched flatbread folded like a handkerchief.</p>
+                </div>
+                <div class="menu-item-card" data-category="breads">
+                    <div class="item-header"><h4>Stuffed Parantha (A2 Desi Ghee / Olive Oil)</h4><span class="price">₹229</span></div>
+                    <p>Aaloo / Pyaz / Paneer stuffed parantha prepared in A2 Desi Ghee or Olive Oil.</p>
+                </div>
+                <div class="menu-item-card" data-category="breads">
+                    <div class="item-header"><h4>Steam Rice / Matar Rice</h4><span class="price">₹171 / ₹183</span></div>
+                    <p>Fluffy white rice steamed to perfection or tossed with green peas.</p>
+                </div>
+                <div class="menu-item-card" data-category="breads">
+                    <div class="item-header"><h4>Jeera Rice / Pulao Rice</h4><span class="price">₹194 / ₹229</span></div>
+                    <p>Fragrant rice tempered with cumin seeds & ghee or cooked with mixed veggies.</p>
+                </div>
+                <div class="menu-item-card" data-category="breads">
+                    <div class="item-header"><h4>Customise Your Own Rice Bowl</h4><span class="price">₹229</span></div>
+                    <p>Build your personalized rice bowl with custom curries and toppings.</p>
+                </div>
+
+                <!-- 5. FLAVORS OF THE SOUTH -->
+                <div class="menu-item-card" data-category="south">
+                    <div class="item-header"><h4>Paper Plain Dosa / Masala Dosa</h4><span class="price">₹171 / ₹252</span></div>
+                    <p>Extra-thin crisp plain dosa or classic potato masala filled dosa.</p>
+                </div>
+                <div class="menu-item-card" data-category="south">
+                    <div class="item-header"><h4>Rawa Plain Dosa / Rawa Masala Dosa</h4><span class="price">₹183 / ₹263</span></div>
+                    <p>Crispy semolina-based dosa served plain or filled with spiced potato masala.</p>
+                </div>
+                <div class="menu-item-card" data-category="south">
+                    <div class="item-header"><h4>Mysore Masala Dosa</h4><span class="price">₹322</span></div>
+                    <p>Crisp dosa layered with spicy Mysore chutney and potato masala.</p>
+                </div>
+                <div class="menu-item-card" data-category="south">
+                    <div class="item-header"><h4>Devangere Benne Dosa</h4><span class="price">₹339</span></div>
+                    <p>Thin, crispy dosa smeared with spicy chutney and topped with fresh grated coconut.</p>
+                </div>
+                <div class="menu-item-card" data-category="south">
+                    <div class="item-header"><h4>Jini Dosa / Family Dosa (40 inch)</h4><span class="price">₹252 / ₹574</span></div>
+                    <p>Mini scrolled masala dosa or extra-large 40-inch sharing dosa with trio chutneys.</p>
+                </div>
+                <div class="menu-item-card" data-category="south">
+                    <div class="item-header"><h4>Plain / Masala / Tomato / Onion Uttapam</h4><span class="price">₹194 - ₹229</span></div>
+                    <p>Thick, soft uttapams with onion-tomato mix, tomatoes, or caramelized onions.</p>
+                </div>
+                <div class="menu-item-card" data-category="south">
+                    <div class="item-header"><h4>Capsicum / Mix Veg Uttapam</h4><span class="price">₹229 / ₹252</span></div>
+                    <p>Thick uttapam topped with spiced capsicum slices or assorted spiced vegetables.</p>
+                </div>
+                <div class="menu-item-card" data-category="south">
+                    <div class="item-header"><h4>Idli Sambar / Fried Idli / Podi Idli</h4><span class="price">₹229</span></div>
+                    <p>Soft steamed rice cakes, golden-fried in desi ghee, or mini idlis in spicy podi.</p>
+                </div>
+                <div class="menu-item-card" data-category="south">
+                    <div class="item-header"><h4>Medu Vada / Idli Vada</h4><span class="price">₹229</span></div>
+                    <p>Crispy lentil doughnuts with a soft center, served standalone or paired with idli & sambar.</p>
+                </div>
+                <div class="menu-item-card" data-category="south">
+                    <div class="item-header"><h4>Poha / Upma / Pongal / Curd Rice</h4><span class="price">₹171 - ₹229</span></div>
+                    <p>Flattened rice, semolina upma, ghee rice-lentil pongal, or cooling curd rice.</p>
+                </div>
+                <div class="menu-item-card" data-category="south">
+                    <div class="item-header"><h4>Appe (6pc) / Rasam</h4><span class="price">₹229 / ₹114</span></div>
+                    <p>Golden rice-lentil dumplings or tangy tamarind-tomato broth.</p>
+                </div>
+
+                <!-- 6. HERITAGE THALIS -->
+                <div class="menu-item-card" data-category="thalis">
+                    <div class="item-header"><h4>Sarv-Ras Swaranjali Thali</h4><span class="price">₹403</span></div>
+                    <p>Poori/Chapati, Steamed Rice, Dal Makhani/Tadka, Matar Paneer, Jaal Farezi, Fruit, Raita, Sweets, Papad, Salad.</p>
+                </div>
+                <div class="menu-item-card" data-category="thalis">
+                    <div class="item-header"><h4>Sarv-Ras Jain Uphar (No Onion No Garlic)</h4><span class="price">₹403</span></div>
+                    <p>Poori/Chapati, Matar Rice, Seasonal Dal, Shahi Paneer, Methi Matar Malai, Seasonal Fruit, Papad, Salad, Beverage.</p>
+                </div>
+                <div class="menu-item-card" data-category="thalis">
+                    <div class="item-header"><h4>Mamta Bhojan Thali</h4><span class="price">₹288</span></div>
+                    <p>Roti (2pc), Rice, Aaloo, Jeera Chole, Dal Tadka, Papad, Pickle.</p>
+                </div>
+                <div class="menu-item-card" data-category="thalis">
+                    <div class="item-header"><h4>Sarv-Ras Dakshin Bharat Thali</h4><span class="price">₹403</span></div>
+                    <p>Mini Masala Dosa, Vada, Idli, Mini Mix Veg Uttapam, Sambar, Chutney, Filter Coffee.</p>
+                </div>
+
+                <!-- 7. BEVERAGES -->
+                <div class="menu-item-card" data-category="drinks">
+                    <div class="item-header"><h4>Lemon / Peach Ice Tea</h4><span class="price">₹139</span></div>
+                    <p>Chilled black tea with citrusy zest or fruity peach and cooling finish.</p>
+                </div>
+                <div class="menu-item-card" data-category="drinks">
+                    <div class="item-header"><h4>Cold Coffee / Hazelnut / Ice Cream Coffee</h4><span class="price">₹169 - ₹199</span></div>
+                    <p>Chilled milk coffee, hazelnut twist, or topped with vanilla ice cream.</p>
+                </div>
+                <div class="menu-item-card" data-category="drinks">
+                    <div class="item-header"><h4>Fresh Lime Soda / Mojitos (All Flavors)</h4><span class="price">₹149 - ₹199</span></div>
+                    <p>Mint, Paan, Kala Khatta, Cucumber, Strawberry, Blueberry, Pineapple, Watermelon, Green Apple, Cumin Mint, Cranberry, Mango Chilli.</p>
+                </div>
+                <div class="menu-item-card" data-category="drinks">
+                    <div class="item-header"><h4>Teas / Coffee / Lassi / Buttermilk</h4><span class="price">₹99 - ₹129</span></div>
+                    <p>Masala Tea, Lemon Tea, Green Tea, Hibiscus Tea, Black Coffee, Filter Coffee, Buttermilk (Plain/Salted/Masala), Sweet Lassi.</p>
+                </div>
+                <div class="menu-item-card" data-category="drinks">
+                    <div class="item-header"><h4>Shakes (Vanilla, Brownie, Oreo, KitKat, Mango, Strawberry, Banana, Blueberry)</h4><span class="price">₹199 - ₹289</span></div>
+                    <p>Thick, creamy blended shakes with rich chocolate, cookie, and tropical fruit flavors.</p>
+                </div>
+
+                <!-- 8. SWEETS & SCOOPS -->
+                <div class="menu-item-card" data-category="sweets">
+                    <div class="item-header"><h4>Khoya Paratha</h4><span class="price">₹223</span></div>
+                    <p>Rich flatbread stuffed with sweetened milk solids.</p>
+                </div>
+                <div class="menu-item-card" data-category="sweets">
+                    <div class="item-header"><h4>Gulab Jamun (2pc)</h4><span class="price">₹99</span></div>
+                    <p>Soft milk dumplings soaked in rose-scented syrup.</p>
+                </div>
+                <div class="menu-item-card" data-category="sweets">
+                    <div class="item-header"><h4>Hot Fudge Brownie / Waffle Crunch Delight</h4><span class="price">₹199</span></div>
+                    <p>Decadent chocolate brownie with hot fudge or golden waffle topped with chocolate & ice cream.</p>
+                </div>
+                <div class="menu-item-card" data-category="sweets">
+                    <div class="item-header"><h4>Indian Kheer / Makhana Kheer</h4><span class="price">₹149 / ₹199</span></div>
+                    <p>Creamy rice pudding or delicate foxnut pudding simmered in saffron milk.</p>
+                </div>
+                <div class="menu-item-card" data-category="sweets">
+                    <div class="item-header"><h4>Ice Cream Scoops (Butterscotch, Choco Chip, Cookie & Cream, Strawberry, Malai Pista, Vanilla)</h4><span class="price">₹59</span></div>
+                    <p>Rich, creamy classic ice cream scoops.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- JAVASCRIPT FOR SEARCH & TABS -->
+    <script>
+        function filterCategory(category, event) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            let cards = document.querySelectorAll('.menu-item-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+
+        function searchMenu() {
+            let input = document.getElementById('menuSearch').value.toLowerCase();
+            let cards = document.querySelectorAll('.menu-item-card');
+            
+            cards.forEach(card => {
+                let title = card.querySelector('h4').innerText.toLowerCase();
+                let desc = card.querySelector('p').innerText.toLowerCase();
+                if (title.includes(input) || desc.includes(input)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>

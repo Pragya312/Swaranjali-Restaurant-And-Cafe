@@ -1,0 +1,2558 @@
+/* Sattvik Earthy Theme Design Variables */
+:root {
+    --peacock-green: #081c15;
+    --dark-emerald: #1b4332;
+    --brass-gold: #d4af37;
+    --brass-gold-light: #f3e5ab;
+    --turmeric-yellow: #e9c46a;
+    --parchment-bg: #fdfbf7;
+    --card-bg: #ffffff;
+    --text-dark: #2d2a26;
+    --text-light: #f4f1ea;
+    --accent-red: #9e2a2b;
+    --font-heading: 'Cinzel', 'Rozha One', serif;
+    --font-hindi: 'Yantra Matra', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--parchment-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-image: radial-gradient(rgba(212, 175, 55, 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.text-center { text-align: center; }
+.mt-4 { margin-top: 1.5rem; }
+
+/* Typography */
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--peacock-green);
+}
+
+.sub-title {
+    color: var(--brass-gold);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.section-divider {
+    width: 80px;
+    height: 3px;
+    background: var(--brass-gold);
+    margin: 15px auto 30px auto;
+    position: relative;
+}
+
+.section-divider::after {
+    content: 'ॐ';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--parchment-bg);
+    padding: 0 8px;
+    color: var(--brass-gold);
+    font-size: 0.9rem;
+}
+
+/* Top Announcement Bar */
+.top-bar {
+    background-color: var(--peacock-green);
+    color: var(--brass-gold-light);
+    font-size: 0.82rem;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.top-bar-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+/* Navbar aur Hero Section ka exact #1b4332 color */
+.navbar {
+    background-color: #1b4332 !important;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.hero-section-vignette {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #1b4332 !important; /* Exact Peacock Green theme */
+    color: #f4f1ea;
+    overflow: hidden;
+    padding-top: 40px;
+}
+
+/* Soft Edge Fade Overlay matched perfectly with #1b4332 */
+.circular-vignette-overlay {
+    position: absolute;
+    inset: -5px;
+    z-index: 2;
+    pointer-events: none;
+    background: radial-gradient(
+        circle at center,
+        transparent 30%,
+        rgba(27, 67, 50, 0.4) 55%,
+        rgba(27, 67, 50, 0.85) 75%,
+        #1b4332 98%
+    );
+} .navbar, .hero-section-vignette {
+    background-color: #1b4332 !important;
+    background-image: none !important;
+}
+/* Navbar *//* Navbar aur Header ka exact #1b4332 color aur styling */
+header, .navbar, .site-header, nav {
+    background-color: #1b4332 !important;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* Agar navbar ke links ya text color ko adjust karna ho */
+.navbar a, .nav-links a, header a {
+    color: #f4f1ea;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover, .nav-links a:hover, header a:hover {
+    color: var(--brass-gold);
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+/* Navbar ki padding aur height ko chota rakhein */
+.navbar {
+    padding: 10px 0 !important;
+    height: 70px; /* Navbar ki fixed height kam rakhne ke liye */
+    display: flex;
+    align-items: center;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/* Brand logo container jisse logo bahar nikal sake */
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    overflow: visible !important; /* Logo ko boundary se bahar allow karega */
+    position: relative;
+    z-index: 101;
+}
+
+/* Logo ki badi size waisi hi rakhein */
+.logo-img {
+    height: 140px !important;
+    width: auto !important;
+    max-height: none !important;
+    object-fit: contain;
+}
+/* Hero Section Container with #1b4332 Theme */
+.hero-section-vignette {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #1b4332; /* Dark Emerald theme color */
+    color: #f4f1ea;
+    overflow: hidden;
+    padding-top: 40px;
+}
+
+.hero-container-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    width: 90%;
+    max-width: 1250px;
+    margin: 0 auto;
+    flex-grow: 1;
+    padding-bottom: 20px;
+}
+
+.hero-text-side {
+    flex: 1.1;
+    z-index: 3;
+}
+
+.hero-text-side .hero-title {
+    font-size: 3.5rem;
+    color: var(--brass-gold);
+    letter-spacing: 2px;
+    margin: 10px 0;
+}
+
+.hero-text-side .hero-subtitle {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.hero-text-side .hero-tagline {
+    font-size: 1.05rem;
+    color: var(--turmeric-yellow);
+    margin-bottom: 25px;
+}
+
+.quote-carousel {
+    height: 40px;
+    margin-bottom: 30px;
+}
+
+.quote-text {
+    display: none;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--brass-gold-light);
+}
+
+.quote-text.active {
+    display: block;
+}
+
+.btn-outline-gold {
+    border: 2px solid var(--brass-gold);
+    color: var(--brass-gold);
+    background: transparent;
+    padding: 12px 28px;
+    border-radius: 4px;
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: 10px;
+    transition: all 0.3s;
+}
+
+.btn-outline-gold:hover {
+    background: var(--brass-gold);
+    color: var(--peacock-green);
+}
+
+/* CIRCULAR CONTAINER */
+.hero-vignette-wrapper {
+    position: relative;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%; /* Gol Circular Shape */
+    overflow: hidden;
+    background-color: #1b4332;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.vignette-slideshow {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* IMAGE BASE STYLE WITH SMOOTH FADE */
+.v-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 1.2s ease-in-out !important;
+}
+
+/* ACTIVE VISIBILITY */
+.v-slide.active {
+    opacity: 1 !important;
+    z-index: 2 !important;
+}
+
+/* CIRCULAR VIGNETTE OVERLAY (#1b4332 PEACOCK GREEN) */
+.circular-vignette-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    background: radial-gradient(
+        circle,
+        transparent 35%,
+        rgba(27, 67, 50, 0.6) 65%,
+        #1b4332 95%
+    );
+}
+/* HERO SECTION CONTAINER - FIXED HEIGHT (Hero Page Lamba Nahi Hoga) */
+.hero-section-vignette {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80vh;              /* Locked height */
+    max-height: 520px;         /* Ensures overall hero page stays compact */
+    padding: 0 4%;
+    background-color: #1b4332 !important;
+    overflow: hidden;
+}
+
+/* WIDE HORIZONTALLY STRETCHED CIRCLE WRAPPER */
+.hero-vignette-wrapper {
+    position: relative;
+    width: 52vw;               /* Screen ki half se thodi zyada width cover karega */
+    max-width: 680px;
+    height: 380px;             /* Compact fixed height */
+    border-radius: 50% / 45%;  /* Smooth horizontal circular curve */
+    overflow: hidden;
+    background-color: #1b4332;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+    flex-shrink: 0;
+}
+
+/* SLIDESHOW IMAGES FIT */
+.vignette-slideshow {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.v-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 1.2s ease-in-out !important;
+}
+
+.v-slide.active {
+    opacity: 1 !important;
+    z-index: 2 !important;
+}
+
+/* PEACOCK GREEN (#1b4332) MATCHING RADIAL VIGNETTE OVERLAY */
+.circular-vignette-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    background: radial-gradient(
+        ellipse at center,
+        transparent 36%,
+        rgba(27, 67, 50, 0.6) 68%,
+        #1b4332 97%
+    );
+}
+
+/* MOBILE RESPONSIVE ADJUSTMENT */
+@media (max-width: 992px) {
+    .hero-section-vignette {
+        height: auto;
+        max-height: none;
+        flex-direction: column;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .hero-vignette-wrapper {
+        width: 90vw;
+        height: 280px;
+        border-radius: 50% / 40%;
+        margin-top: 20px;
+    }
+}
+
+/* Navbar text ko clearly visible rakhne ke liye */
+.navbar a, .nav-links a {
+    color: #ffffff !important;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+
+}
+/* ABSOLUTE FORCE WHITE NAVBAR */
+header.navbar, nav.navbar, .navbar, div.navbar {
+    background-color: #ffffff !important;
+    background-image: none !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid #e0e0e0 !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* NAVBAR TEXT & LINKS COLOR FIX FOR WHITE BACKGROUND */
+.navbar a, .nav-links a, .navbar .nav-links a {
+    color: #2d2a26 !important;
+    text-shadow: none !important;
+}
+
+.navbar a:hover, .nav-links a:hover {
+    color: #1b4332 !important;
+}
+/* Navbar text ko clearly visible rakhne ke liye */
+.navbar a, .nav-links a {
+    color: #ffffff !important;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+.navbar {
+    background-color: #ffffff !important;
+    background-image: none !important;
+    border-bottom: 1px solid #e0e0e0 !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+}
+
+.navbar a, .nav-links a {
+    color: #2d2a26 !important;
+    text-shadow: none !important;
+}
+
+.navbar a:hover, .nav-links a:hover {
+    color: #1b4332 !important;
+}
+/* Navbar text ko clearly visible rakhne ke liye */
+.navbar a, .nav-links a {
+    color: #ffffff !important;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+}
+
+/* Navbar text ko clearly visible rakhne ke liye */
+.navbar a, .nav-links a {
+    color: #ffffff !important;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}/* HERO SECTION BACKGROUND IMAGE UPDATE */
+.hero-section-vignette {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80vh;
+    max-height: 520px;
+    padding: 0 4%;
+    /* Solid green color hata kar ab yeh image background mein lag jayegi */
+    background-image: url('hero.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    overflow: hidden;
+}
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+.logo-img {
+    height: 65px; /* Yahan size apne hisaab se badha ya ghata sakte hain (jaise 60px, 70px) */
+    width: auto;
+    object-fit: contain;
+}
+.logo-symbol {
+    font-size: 2rem;
+    color: var(--brass-gold);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-title {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--brass-gold);
+    letter-spacing: 2px;
+}
+
+.logo-subtitle {
+    font-size: 0.65rem;
+    color: var(--brass-gold-light);
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--brass-gold);
+}
+
+.nav-btn {
+    background: var(--brass-gold);
+    color: var(--peacock-green) !important;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-weight: 700 !important;
+}
+
+.mobile-toggle {
+    display: none;
+    color: var(--brass-gold);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Audio Player Floating Widget */
+.audio-player-widget {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    z-index: 999;
+    background: var(--peacock-green);
+    border: 2px solid var(--brass-gold);
+    padding: 10px 18px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.audio-btn {
+    background: var(--brass-gold);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: var(--peacock-green);
+    cursor: pointer;
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.audio-title {
+    color: var(--brass-gold);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.audio-subtext {
+    color: var(--text-light);
+    font-size: 0.68rem;
+}
+/* 1. Navbar aur Hero Section dono ka background same Green karein */
+.navbar,
+.hero-section-custom {
+    background-color: #0d2c1e !important; /* Apne navbar ka exact green shade yahan rakhein (eg. #0f3824 ya #123d28) */
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* 2. Navbar aur Hero section ke beech ki border/golden line hatane ke liye */
+.navbar {
+    border-bottom: none !important;
+    margin-bottom: 0 !important;
+}
+
+.hero-section-custom {
+    border-top: none !important;
+    margin-top: 0 !important;
+    padding-top: 20px; /* Optional: adjust padding so content visually blends smoothly */
+}
+/* Book a Table aur Menu wale buttons ka color #F4C430 karne ke liye */
+.hero-text-side .btn-gold, 
+.hero-text-side .btn, 
+.hero-text-side .btn-outline-gold {
+    background-color: #F4C430 !important;
+    border-color: #F4C430 !important;
+    color: #000704 !important; /* Text color ko dark green rakhenge taaki saaf dikhe */
+}
+
+/* Hover par bhi wahi color maintain karne ke liye */
+.hero-text-side .btn-gold:hover, 
+.hero-text-side .btn:hover, 
+.hero-text-side .btn-outline-gold:hover {
+    background-color: #d4af37 !important;
+    border-color: #d4af37 !important;
+}
+/* 3. Agar koi divider, hr ya pseudo-element (::after / ::before) se golden line aa rahi ho */
+.navbar::after,
+.navbar::before,
+.hero-section-custom::before,
+.hero-section-custom::after {
+    display: none !important;
+    border: none !important;
+}
+/* Navbar Items Pop-up / Hover Effect */
+.navbar .nav-links a, 
+.navbar .navbar-nav .nav-link,
+.nav-links li a {
+    display: inline-block !important;
+    position: relative !important;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s ease !important;
+}
+
+/* Hover karne par text pop-up (scale + slide up + subtle shadow) honga */
+.navbar .nav-links a:hover, 
+.navbar .navbar-nav .nav-link:hover,
+.nav-links li a:hover {
+    transform: translateY(-4px) scale(1.08) !important;
+    color: #F4C430 !important;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+}
+/* Hero Section Custom Styles & Maroon Text Updated to #e5ffb8 */
+.hero-section-custom {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #2b0b14;
+    background-image: url('hero.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    color: #f4f1ea;
+    overflow: hidden;
+    padding: 40px 4% 0 4%;
+    height: 80vh;
+    max-height: 520px;
+}
+
+.hero-container-custom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    width: 92%;
+    max-width: 1250px;
+    margin: 0 auto;
+    flex-grow: 1;
+    padding-bottom: 20px;
+}
+
+.hero-text-side {
+    flex: 1.1;
+    z-index: 3;
+    position: relative !important;
+    left: -20px !important;
+    margin-top: -20px !important;
+}
+
+.hero-text-side .sanskrit-badge {
+    background: rgba(229, 255, 184, 0.15) !important;
+    border: 1px solid #e5ffb8 !important;
+    color: #e5ffb8 !important;
+    padding: 6px 18px;
+    border-radius: 30px;
+    font-family: var(--font-hindi);
+    font-size: 1.1rem;
+    margin-bottom: 5px !important;
+    display: inline-block;
+}
+
+.hero-text-side .hero-title {
+    font-size: 3.5rem !important;
+    color: #e5ffb8 !important;
+    letter-spacing: 2px;
+    margin: 0 !important;
+    line-height: 1 !important;
+}
+
+.hero-text-side .hero-subtitle {
+    font-size: 1.5rem;
+    color: #e5ffb8 !important;
+    margin: 5px 0 10px 0 !important;
+}
+
+.hero-text-side .hero-tagline {
+    font-family: var(--font-hindi);
+    font-size: 1.05rem;
+    color: #e5ffb8 !important;
+    margin-bottom: 10px !important;
+}
+
+.quote-carousel {
+    display: block !important;
+    position: relative !important;
+    height: 40px;
+    margin-top: 60px !important;
+    margin-bottom: 30px !important;
+}
+/* Image container ko proper width aur centring dene ke liye */
+.hero-image-side, 
+.hero-img-container, 
+.hero-img-wrapper {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    padding: 0 15px !important;
+    box-sizing: border-box !important;
+}
+
+/* Image ko side se cut hone se bachane ke liye 100% responsive fix */
+.hero-image-side img, 
+.hero-img-container img, 
+.hero-img-wrapper img {
+    display: block !important;
+    width: 100% !important;
+    max-width: 450px !important; /* Agar image badi hai toh yahan se width control hogi */
+    height: auto !important;
+    object-fit: contain !important;
+    margin: 30px auto !important; /* Dono taraf se equal spacing aur center align */
+    transform: none !important;
+}
+.quote-text {
+    display: none;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #e5ffb8 !important;
+}
+
+.quote-text.active {
+    display: block;
+}
+/* Hero Text Side ko left align karne aur gap kam karne ke liye */
+.hero-text-side {
+    text-align: left !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
+
+/* Sanskrit badge margin fix */
+.hero-text-side .sanskrit-badge {
+    margin-bottom: 8px !important;
+}
+/* Food image ko upar se niche align karne aur vertically center karne ke liye */
+.hero-image-side, 
+.hero-img-container,
+.hero-image-side img {
+    margin-top: 30px !important; /* Image ko niche shift karne ke liye */
+    position: relative !important;
+    vertical-align: middle !important;
+}
+
+/* Sanskrit badge, Swaranjali aur mantra text ko leaf ke andar sahi jagah lane ke liye */
+.hero-text-side {
+    position: relative !important;
+    top: 25px !important; /* Text ko thoda niche leaf area par fit karne ke liye */
+    padding-left: 20px !important;
+}
+
+.hero-text-side .sanskrit-badge {
+    margin-top: 10px !important;
+    margin-bottom: 8px !important;
+}
+/* Hero section image frame ko adjust karne ke liye */
+.hero-image-side, 
+.hero-img-wrapper,
+.hero-img-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: visible !important;
+    padding-top: 40px !important; /* Image ko niche shift karne ke liye */
+    height: auto !important;
+}
+
+/* Round food image ki shape aur size ko fix karne ke liye */
+.hero-image-side img, 
+.hero-img-container img {
+    max-height: 85% !important;
+    width: auto !important;
+    object-fit: contain !important; /* Image ko katne se bachane ke liye */
+    margin-top: 25px !important;
+    border-radius: 50% !important; /* Perfect circular shape maintain rakhne ke liye */
+}
+/* "With Ayurvedic Music Therapy" tag line color `#e5ffb8` */
+.hero-text-side .hero-tagline {
+    color: #e5ffb8 !important;
+}
+
+/* Sirf aur sirf loop wale (quote carousel) text ko Black karne ke liye */
+.hero-text-side .quote-carousel,
+.hero-text-side .quote-carousel p,
+.hero-text-side .quote-carousel span,
+.hero-text-side #quote-text {
+    color: #000000 !important;
+    font-weight: 600 !important;
+}
+
+/* Title aur Subtitle ke beech ka gap kam karne ke liye */
+.hero-text-side .hero-title {
+    margin: 2px 0 !important;
+    line-height: 1.1 !important;
+}
+
+.hero-text-side .hero-subtitle {
+    margin: 2px 0 6px 0 !important;
+    font-size: 1.5rem !important;
+}
+
+/* Tagline aur quote carousel ka gap adjust karne ke liye */
+.hero-text-side .hero-tagline {
+    margin-bottom: 10px !important;
+}
+
+.hero-text-side .quote-carousel {
+    height: 30px !important;
+    margin-bottom: 15px !important;
+}
+
+/* Loop text aur buttons ko thoda aur niche shift karne ke liye */
+.hero-text-side .quote-carousel {
+    margin-top: 35px !important;
+    margin-bottom: 40px !important;
+}
+
+.hero-text-side .cta-buttons-group, 
+.hero-text-side .btn-outline-gold, 
+.hero-text-side .btn {
+    margin-top: 25px !important;
+}
+/* Loop text (quote carousel) ko force karke niche lane ke liye */
+.hero-text-side .quote-carousel {
+    display: block !important;
+    position: relative !important;
+    margin-top: 60px !important; /* Yahan se gap badha kar niche la sakte hain */
+    margin-bottom: 30px !important;
+}
+
+/* Tagline aur quote ke beech ke gap ko saaf karne ke liye */
+.hero-text-side .hero-tagline {
+    margin-bottom: 20px !important;
+}
+
+/* Buttons ko bhi quote ke sath bilkul sahi position par rakhne ke liye */
+.hero-text-side .cta-buttons-group, 
+.hero-text-side .btn-outline-gold, 
+.hero-text-side .btn {
+    position: relative !important;
+    margin-top: 20px !important;
+}
+/* Quote carousel aur buttons ko aur niche shift karne ke liye */
+.hero-text-side .quote-carousel {
+    display: block !important;
+    position: relative !important;
+    margin-top: 100px !important; /* Is value ko 120px ya 140px karke apne hisaab se adjust kar sakte hain */
+    margin-bottom: 25px !important;
+}
+
+/* Buttons ko quote text ke sath perfect spacing par rakhne ke liye */
+.hero-text-side .cta-buttons-group, 
+.hero-text-side .btn-outline-gold, 
+.hero-text-side .btn {
+    position: relative !important;
+    margin-top: 20px !important;
+}
+/* Hero Section Container */
+.hero-section {
+    position: relative;
+    padding: 120px 20px;
+    color: var(--text-light);
+    overflow: hidden;
+}
+
+/* Custom Hero Section based on reference image style */
+.hero-section-custom {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #2b0b14; /* Deep rich maroon/brown satvik tone */
+    color: #f4f1ea;
+    overflow: hidden;
+    padding-top: 40px;
+}
+
+.hero-container-custom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    width: 92%;
+    max-width: 1250px;
+    margin: 0 auto;
+    flex-grow: 1;
+    padding-bottom: 20px;
+}
+
+.hero-text-side {
+    flex: 1.1;
+    z-index: 2;
+}
+
+.hero-text-side .hero-title {
+    font-size: 3.5rem;
+    color: var(--brass-gold);
+    letter-spacing: 2px;
+    margin: 10px 0;
+}
+
+.hero-text-side .hero-subtitle {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.hero-text-side .hero-tagline {
+    font-size: 1.05rem;
+    color: var(--turmeric-yellow);
+    margin-bottom: 25px;
+}
+
+.quote-carousel {
+    height: 40px;
+    margin-bottom: 30px;
+}
+
+.quote-text {
+    display: none;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--brass-gold-light);
+}
+
+.quote-text.active {
+    display: block;
+}
+
+.btn-outline-gold {
+    border: 2px solid var(--brass-gold);
+    color: var(--brass-gold);
+    background: transparent;
+    padding: 12px 28px;
+    border-radius: 4px;
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: 10px;
+    transition: all 0.3s;
+}
+
+.btn-outline-gold:hover {
+    background: var(--brass-gold);
+    color: var(--peacock-green);
+}
+/* Direct Image Base Styles */
+.v-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 1.2s ease-in-out !important;
+}
+
+/* Active Image Visibility */
+.v-slide.active {
+    opacity: 1 !important;
+    z-index: 2 !important;
+}
+
+/* Light inner shadow for premium look */
+.image-frame-overlay {
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+    z-index: 2;
+}
+
+@media (max-width: 992px) {
+    .hero-image-side {
+        width: 100%;
+        height: 280px;
+        max-width: 100%;
+    }
+}
+/* Right Side Image Slider with Soft Fade/Blur Edge Effect */
+.hero-image-side {
+    flex: 0.9;
+    position: relative;
+    height: 400px;
+    width: 100%;
+    border-radius: 200px 30px 200px 30px;
+    overflow: hidden;
+}
+
+.image-fade-slider {
+    position: absolute;
+    inset: 0;
+}
+
+.img-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.img-slide.active {
+    opacity: 1;
+}
+
+/* Soft blur and vignette edge effect matching the screenshot */
+.soft-blur-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, transparent 40%, rgba(43, 11, 20, 0.85) 90%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Bottom Ticker Bar */
+.hero-ticker-bar {
+    background-color: #800000 !important; /* Aap chahein toh #58111A ya koi bhi deep maroon shade use kar sakte hain */
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 12px 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.ticker-content {
+    display: inline-block;
+    animation: tickerScroll 25s linear infinite;
+    color: var(--brass-gold-light);
+    font-size: 1rem;
+}
+
+.ticker-content span {
+    margin: 0 25px;
+}
+
+@keyframes tickerScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 992px) {
+    .hero-container-custom {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-image-side {
+        width: 100%;
+        height: 280px;
+        border-radius: 20px;
+    }
+}
+.sanskrit-badge {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.2);
+    border: 1px solid var(--brass-gold);
+    color: var(--brass-gold-light);
+    padding: 6px 18px;
+    border-radius: 30px;
+    font-family: var(--font-hindi);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    font-size: 3.8rem;
+    color: var(--brass-gold);
+    letter-spacing: 4px;
+}
+
+.hero-subtitle {
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.hero-tagline {
+    font-family: var(--font-hindi);
+    font-size: 1.2rem;
+    color: var(--turmeric-yellow);
+    margin-bottom: 30px;
+}
+
+.quote-carousel {
+    height: 40px;
+    margin-bottom: 35px;
+}
+
+.quote-text {
+    display: none;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--brass-gold-light);
+}
+
+.quote-text.active {
+    display: block;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s;
+}
+
+.btn-gold {
+    background: var(--brass-gold);
+    color: var(--peacock-green);
+}
+
+.btn-gold:hover {
+    background: var(--turmeric-yellow);
+}
+
+.btn-outline-light {
+    border: 2px solid var(--brass-gold);
+    color: var(--brass-gold);
+    margin-left: 10px;
+}
+
+.btn-outline-dark {
+    border: 2px solid var(--peacock-green);
+    color: var(--peacock-green);
+}
+
+/* Bhojan Mantra Banner */
+.mantra-banner {
+    background: var(--dark-emerald);
+    color: var(--brass-gold-light);
+    padding: 50px 0;
+    border-bottom: 3px solid var(--brass-gold);
+}
+
+.mantra-box {
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px dashed var(--brass-gold);
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.mantra-label {
+    color: var(--turmeric-yellow);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.mantra-sanskrit {
+    font-family: var(--font-hindi);
+    font-size: 1.6rem;
+    color: var(--brass-gold);
+    margin: 10px 0;
+}
+
+.divider-gold {
+    width: 60px;
+    height: 1px;
+    background: var(--brass-gold);
+    margin: 15px auto;
+}
+
+.gita-verse {
+    font-family: var(--font-hindi);
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+/* About & Ayurveda Pillars */
+.about-section {
+    padding: 80px 0;
+}
+
+.about-text-content .lead-p {
+    font-size: 1.1rem;
+    color: #4a4640;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.unique-highlights {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-left: 4px solid var(--brass-gold);
+    margin-bottom: 40px;
+}
+
+.unique-highlights h3 {
+    margin-bottom: 15px;
+}
+
+.unique-highlights ul {
+    list-style: none;
+}
+
+.unique-highlights li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.unique-highlights i {
+    color: var(--brass-gold);
+}
+
+.ayurveda-pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.pillar-card {
+    background: #fff;
+    padding: 35px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    border-top: 3px solid var(--brass-gold);
+}
+
+.pillar-icon {
+    font-size: 2.2rem;
+    color: var(--brass-gold);
+    margin-bottom: 15px;
+}
+
+.pillar-sub {
+    color: var(--accent-red);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.quote-tag {
+    background: var(--parchment-bg);
+    border-left: 3px solid var(--brass-gold);
+    padding: 10px;
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-top: 15px;
+}/* Unique Highlights Section ko 2-Column Layout mein badalne ke liye */
+.unique-section-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* Left side wala highlight box */
+.unique-section-wrapper .unique-highlights {
+    flex: 1;
+    margin-bottom: 0 !important;
+}
+
+/* Right side video container ke liye jagah */
+.unique-video-side {
+    flex: 1;
+    position: relative;
+    height: 380px;
+    background: #081c15;
+    border-radius: 12px;
+    border: 2px solid var(--brass-gold);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.unique-video-side iframe, 
+.unique-video-side video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Mobile responsive ke liye */
+@media (max-width: 992px) {
+    .unique-section-wrapper {
+        flex-direction: column;
+    }
+    .unique-video-side {
+        width: 100%;
+        height: 280px;
+    }
+}
+
+/* KFC-Style Promo Cards Grid */
+.promo-section {
+    background: #f4efdf;
+    padding: 80px 0;
+}
+
+.kfc-promo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.promo-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    position: relative;
+    border: 1px solid #e0d8c3;
+    display: flex;
+    flex-direction: column;
+}
+
+.highlight-card {
+    border: 2px solid var(--accent-red);
+}
+
+.promo-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--accent-red);
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    z-index: 2;
+}
+
+.promo-img-wrapper {
+    height: 180px;
+    overflow: hidden;
+}
+
+.promo-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.promo-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.promo-category {
+    font-size: 0.75rem;
+    color: var(--brass-gold);
+    font-weight: 700;
+}
+
+.promo-content h3 {
+    font-size: 1.1rem;
+    margin: 5px 0 10px 0;
+}
+
+.promo-content p {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.promo-pricing {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.price-discounted {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--peacock-green);
+}
+
+.price-original {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.save-tag {
+    background: #e8f5e9;
+    color: #2e7d32;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+.promo-btn {
+    display: block;
+    text-align: center;
+    background: var(--peacock-green);
+    color: var(--brass-gold);
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: 700;
+}
+
+/* Regional Menu Tabs */
+.menu-section {
+    padding: 80px 0;
+}
+
+.menu-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+}
+
+.tab-btn {
+    background: #fff;
+    border: 1px solid var(--brass-gold);
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--peacock-green);
+}
+
+.tab-btn.active, .tab-btn:hover {
+    background: var(--peacock-green);
+    color: var(--brass-gold);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.menu-item-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 3px solid var(--brass-gold);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.item-header h4 {
+    font-size: 1.1rem;
+}
+
+.item-header .price {
+    font-weight: 700;
+    color: var(--accent-red);
+}
+
+/* Services Section */
+.services-section {
+    background: var(--peacock-green);
+    color: var(--text-light);
+    padding: 80px 0;
+}
+
+.services-section h2, .services-section h3 {
+    color: var(--brass-gold);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.service-box {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.service-box i {
+    font-size: 2.2rem;
+    color: var(--brass-gold);
+    margin-bottom: 15px;
+}
+
+/* Live Music Dining Section */
+.music-dining-section {
+    padding: 80px 0;
+}
+
+.music-card {
+    background: linear-gradient(135deg, var(--peacock-green) 0%, var(--dark-emerald) 100%);
+    color: #fff;
+    padding: 50px;
+    border-radius: 12px;
+    border: 2px solid var(--brass-gold);
+}
+
+.sub-title-light {
+    color: var(--turmeric-yellow);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+}
+
+.music-card h2 {
+    color: var(--brass-gold);
+}
+
+.music-features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.m-feature {
+    background: rgba(0,0,0,0.2);
+    padding: 25px;
+    border-radius: 8px;
+}
+
+.m-feature h4 {
+    color: var(--brass-gold);
+    margin-bottom: 12px;
+}
+
+.music-quote {
+    font-style: italic;
+    color: var(--turmeric-yellow);
+    font-size: 1.2rem;
+}
+
+/* Celebrations & Packages */
+.packages-section {
+    padding: 80px 0;
+    background: #fdfbf7;
+}
+
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.package-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-top: 3px solid var(--brass-gold);
+}
+
+.guest-count {
+    display: inline-block;
+    background: var(--brass-gold-light);
+    color: var(--peacock-green);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin: 8px 0 12px 0;
+}
+
+.package-includes-box {
+    margin-top: 40px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--brass-gold);
+}
+
+.includes-flex {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    font-weight: 600;
+}
+
+.cta-buttons-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+/* =========================================================
+   AYURVEDA PILLARS SECTION (EXACT IMAGE MATCH)
+========================================================= */
+.ayurveda-pillars-section {
+    padding: 60px 0;
+    background-color: #faf8f2;
+}
+
+.ayurveda-pillars {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+/* Card Styling */
+.pillar-card {
+    background: #f7f3e8;
+    border: 1px solid #e2dac5;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pillar-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+.pillar-card-content {
+    padding: 30px 30px 20px 30px;
+}
+
+/* Badges */
+.pillar-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: 14px;
+}
+
+.badge-cream {
+    background-color: #f3e5c8;
+    color: #8c531d;
+    border: 1px solid #e0ce9f;
+}
+
+.badge-green {
+    background-color: #e2ece3;
+    color: #2b5134;
+    border: 1px solid #c2d6c4;
+}
+
+/* Titles and Text */
+.pillar-title {
+    color: #1f3d2b;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.pillar-sub {
+    color: #8c531d;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 14px;
+}
+
+.pillar-description {
+    color: #4a534c;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+/* 🟢 YE WALA PART IMAGE KE HISAB SE UPDATE KIYA HAI (2 Boxes Side-by-Side) */
+.pillar-features-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+    margin-bottom: 16px;
+}
+
+.pillar-feature-box {
+    background-color: #fdfbf7;
+    border: 1px solid #eae3d2;
+    border-radius: 10px;
+    padding: 14px;
+}
+
+.pillar-feature-box h4 {
+    color: #1f3d2b;
+    font-size: 0.88rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.pillar-feature-box p {
+    color: #555e57;
+    font-size: 0.82rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Quote Tag Box */
+.quote-tag {
+    font-style: italic;
+    font-weight: 600;
+    color: #1f3d2b;
+    background: rgba(255, 255, 255, 0.6);
+    border-left: 3px solid #8c531d;
+    padding: 10px 14px;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.88rem;
+}
+
+/* Bottom Image Container ko poori image dikhane ke liye fix */
+.pillar-card-image {
+    width: 100% !important;
+    height: auto !important; /* Fixed height hata kar auto kar diya */
+    overflow: visible !important;
+    border-top: 1px solid #e2dac5;
+    margin-top: 15px;
+    background-color: #f7f3e8; /* Agar image ke palle mein jagah bache toh background match karega */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 10px !important;
+}
+
+.pillar-card-image img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 280px !important; /* Aap apne hisaab se max height adjust kar sakte hain */
+    object-fit: contain !important; /* 'cover' ki jagah 'contain' karne se image kabhi nahi kategi */
+    object-position: center !important;
+    display: block !important;
+    transition: transform 0.4s ease;
+}
+
+.pillar-card:hover .pillar-card-image img {
+    transform: scale(1.02);
+}
+/* Card ke andar content aur image ke beech ka gap kam karne ke liye */
+.pillar-card-content {
+    padding: 24px 24px 12px 24px !important; /* Bottom padding kam kar di */
+    margin-bottom: 0 !important;
+}
+
+/* Image container ka margin-top aur padding kam karne ke liye */
+.pillar-card-image {
+    margin-top: 5px !important; /* Upar ka extra gap hata diya */
+    padding: 0 10px 10px 10px !important;
+}
+
+/* Description aur features ke niche ka margin tighten karne ke liye */
+.pillar-description,
+.pillar-features-grid {
+    margin-bottom: 12px !important;
+}
+
+.quote-tag {
+    margin-bottom: 0 !important;
+}
+
+/* Responsive Support */
+@media (max-width: 991px) {
+    .ayurveda-pillars {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .pillar-features-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .pillar-card-content {
+        padding: 20px;
+    }
+}
+/* Writing method / text section ko image ki tarah clean aur structured banane ke liye */
+.ayurveda-pillars-section .pillar-card-content {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    height: 100% !important;
+}
+
+/* Text alignment aur spacing ko image container ke sath match karne ke liye */
+.ayurveda-pillars-section .pillar-description,
+.ayurveda-pillars-section .pillar-feature-box p,
+.ayurveda-pillars-section .pillar-bullets li {
+    text-align: left !important;
+    letter-spacing: 0.2px !important;
+}
+
+/* Writing box aur image ke beech ka gap aur border alignment */
+.ayurveda-pillars-section .pillar-card {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+/* Unique Highlights Box - Mint Green BG with Yellow border and yellow points */
+.unique-highlights {
+    background-color: #e5ffb8 !important;
+    border: 2px solid #F4C430 !important; /* Border color pure yellow */
+    border-radius: 12px !important;
+    padding: 24px !important;
+    color: #1f3d2b !important;
+}
+
+/* Heading color */
+.unique-highlights h3 {
+    color: #800000 !important;
+    margin-bottom: 16px !important;
+}
+
+/* List items text color */
+.unique-highlights ul li {
+    color: #2b4c38 !important;
+    margin-bottom: 10px !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+}
+
+/* Checkmark icons (points) color sirf yellow */
+.unique-highlights ul li i {
+    color: #F4C430 !important; /* Points / Icons color yellow */
+    font-size: 1.1rem !important;
+    margin-top: 2px !important;
+}
+
+
+/* Google & Guest Reviews */
+.reviews-section {
+    padding: 80px 0;
+    background: #f5efe1;
+}
+
+.google-rating-summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+.google-logo { font-weight: 700; }
+.stars { color: #f39c12; }
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.review-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.reviewer-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.reviewer-avatar {
+    width: 42px;
+    height: 42px;
+    background: var(--peacock-green);
+    color: var(--brass-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.reviewer-info h4 { font-size: 0.95rem; }
+.review-date { font-size: 0.75rem; color: #777; }
+.google-icon { margin-left: auto; color: #4285F4; font-size: 1.2rem; }
+.star-rating { color: #f39c12; margin-bottom: 10px; }
+
+/* Instagram Gallery Grid */
+.gallery-section { padding: 80px 0; }
+
+.gallery-filter {
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    background: none;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.filter-btn.active {
+    color: var(--brass-gold);
+    border-bottom: 2px solid var(--brass-gold);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+.gallery-item {
+    position: relative;
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.insta-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(8, 28, 21, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 2rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.gallery-item:hover .insta-overlay { opacity: 1; }
+
+/* Contact Section */
+.contact-section { padding: 80px 0; background: #fff; }
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.contact-form-card {
+    background: var(--parchment-bg);
+    padding: 35px;
+    border-radius: 8px;
+    border: 1px solid #e0d8c3;
+}
+
+.form-group { margin-bottom: 18px; }
+.form-row { display: flex; gap: 15px; }
+.form-row .form-group { flex: 1; }
+
+label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+.btn-block { width: 100%; cursor: pointer; }
+
+.contact-info-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-item {
+    display: flex;
+    gap: 15px;
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    color: var(--brass-gold);
+}
+
+.btn-whatsapp {
+    background: #25D366;
+    color: #fff;
+    text-align: center;
+    display: block;
+}
+
+/* Footer */
+.footer {
+    background: var(--peacock-green);
+    color: var(--text-light);
+    padding: 40px 0 20px 0;
+    border-top: 3px solid var(--brass-gold);
+}
+
+.footer-logo {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--brass-gold);
+}
+
+.footer-tag { color: var(--brass-gold-light); }
+.disclaimer { font-size: 0.75rem; color: #888; margin-top: 15px; }
+.footer-bottom { margin-top: 25px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; }
+
+/* Responsive Media Queries */
+@media (max-width: 992px) {
+    .ayurveda-pillars, .music-features-grid, .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-title { font-size: 2.8rem; }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--peacock-green);
+        flex-direction: column;
+        padding: 20px;
+    }
+    .nav-links.active { display: flex; }
+    .mobile-toggle { display: block; }
+    .hero-title { font-size: 2.2rem; }
+    .audio-player-widget { bottom: 15px; left: 15px; padding: 6px 12px; }
+    .audio-info { display: none; }
+}
+/* Ad Popup Overlay */
+.ad-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+
+.ad-modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Ad Box Design */
+.ad-modal-card {
+    background: #fff;
+    width: 90%;
+    max-width: 450px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    text-align: center;
+    animation: popupAnimation 0.4s ease;
+}
+
+@keyframes popupAnimation {
+    from { transform: scale(0.8); }
+    to { transform: scale(1); }
+}
+
+.ad-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: #fff;
+    background: rgba(0,0,0,0.6);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.ad-img-box img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.ad-content {
+    padding: 20px;
+}
+
+.ad-content h3 {
+    color: #1b4332;
+    margin-bottom: 8px;
+    font-size: 22px;
+}
+
+.ad-btn {
+    display: inline-block;
+    margin-top: 15px;
+    background: #e67e22;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.hero-cta {
+    display: flex !important;
+    gap: 16px !important;
+}
+
+.hero-cta .btn {
+    flex: 1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 12px 24px !important; /* Agar padding badalni ho toh yahan change karein */
+    box-sizing: border-box !important;
+    white-space: nowrap !important;
+}
+/* Container ko properly align aur spacing set karne ke liye */
+.hero-text-side {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important; /* Left alignment */
+    gap: 12px !important; /* Har text element ke beech clean equal spacing */
+}
+
+/* 1. Sanskrit Badge - Logo Theme Color & Styling */
+.hero-text-side .sanskrit-badge {
+    background-color: rgba(212, 160, 23, 0.25) !important;
+    border: 1.5px solid #d4a017 !important; /* Swaranjali logo gold border */
+    color: #ffffff !important;
+    padding: 6px 16px !important;
+    border-radius: 20px !important;
+    font-size: 0.9rem !important;
+    margin-bottom: 4px !important;
+    display: inline-block !important;
+}
+
+/* 2. Main Titles Spacing (Bikra hua na lage) */
+.hero-text-side .hero-title {
+    margin: 0 !important;
+    line-height: 1.1 !important;
+}
+
+.hero-text-side .hero-subtitle {
+    margin: 0 !important;
+    line-height: 1.2 !important;
+}
+
+.hero-text-side .hero-tagline {
+    margin: 0 !important;
+    margin-bottom: 8px !important; /* Quote line se pehle ka space */
+}
+
+/* 3. Black Loop Quote Line - Leaf texture line se upar shift karna */
+.hero-text-side .quote-carousel {
+    margin-top: -10px !important; /* Leaf line se thoda upar uthane ke liye */
+    padding-top: 4px !important;
+}
+
+.hero-text-side .quote-carousel .quote-text {
+    color: #000000 !important;
+    font-weight: 600 !important;
+    font-style: italic !important;
+    margin: 0 !important;
+}
+/* Buttons container ko banana leaf line ke neeche push karna */
+.hero-cta {
+    display: flex !important;
+    gap: 16px !important;
+    margin-top: 25px !important; /* Leaf line se neeche lane ke liye space */
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Dono buttons ka shape aur size bilkul ek jaisa karne ke liye */
+.hero-cta .btn {
+    flex: 1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 12px 24px !important;
+    border-radius: 8px !important; /* Dono ka shape same rounded rahega */
+    box-sizing: border-box !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+}
+/* Loop wali quote line ka color mint green karne ke liye */
+.hero-text-side .quote-carousel .quote-text {
+    color: #e5ffb8 !important; 
+    font-weight: 500 !important;
+    font-style: italic !important;
+}
+/* 1. Box ka background color peacock green karna */
+.unique-section-wrapper .unique-highlights {
+    background-color: #1b4332 !important; /* Rich peacock green tone */
+    color: #ffffff !important; /* Text ko readable rakhne ke liye white */
+    padding: 30px !important;
+    border-radius: 12px !important;
+}
+
+/* 2. 'What Makes Swaranjali Unique' heading ko gold color dena */
+.unique-section-wrapper .unique-highlights h3 {
+    color: #d4a017 !important; /* Swaranjali gold color */
+    font-weight: 700 !important;
+}
+
+/* 3. List items ka text color bhi clear aur clean rakhne ke liye */
+.unique-section-wrapper .unique-highlights ul li {
+    color: #f0fdf4 !important;
+    margin-bottom: 10px !important;
+}
+/* Gap ko ekdum tight karne ke liye negative margin aur minimal padding */
+
+/* 1. Lead paragraph ka bottom margin thoda aur kam */
+.about-text-content .lead-p {
+    margin-bottom: 8px !important;
+}
+
+/* 2. Unique section wrapper ke upar-neeche ka space ekdum kam */
+.about-text-content .unique-section-wrapper {
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+}
+
+/* 3. Ayurveda section aur container ke top gaps zero */
+.ayurveda-pillars-section {
+    padding-top: 0 !important;
+    margin-top: -5px !important; /* Thoda aur upar khinchne ke liye */
+}
+
+.ayurveda-pillars-section .container {
+    padding-top: 0 !important;
+}
+
+.ayurveda-pillars {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+/* Ayurveda section aur Promotions section ke beech ke gap ko poori tarah tight karna */
+.ayurveda-pillars-section {
+    padding-bottom: 0px !important;
+    margin-bottom: -20px !important; /* Thoda overlap ya bilkul chipkane ke liye */
+}
+
+#promotions, 
+.promotions-container {
+    padding-top: 0px !important;
+    margin-top: 0px !important;
+}
+
+#promotions .section-header {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+#promotions .section-header .sub-title {
+    margin-top: 0 !important;
+}
+/* POPUP MODAL STYLES */
+.ad-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(5px);
+    z-index: 99999;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.ad-modal-box {
+    background: #ffffff;
+    width: 100%;
+    max-width: 440px;
+    border-radius: 20px;
+    padding: 24px 20px;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    border: 2px solid #d4af37;
+    text-align: center;
+    animation: adSlideUp 0.4s ease-out forwards;
+}
+
+@keyframes adSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ad-close-btn {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: #f1f1f1;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    line-height: 1;
+    transition: background 0.2s;
+}
+
+.ad-close-btn:hover {
+    background: #e0e0e0;
+}
+
+.ad-badge {
+    display: inline-block;
+    background: #e5ffb8;
+    color: #1b4332;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 4px 12px;
+    border-radius: 12px;
+    margin-bottom: 6px;
+}
+
+.ad-title {
+    font-size: 22px;
+    color: #1b4332;
+    margin: 4px 0 2px 0;
+    font-family: 'Playfair Display', serif;
+}
+
+.ad-subtitle {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 16px;
+}
+
+/* TABS TOGGLE */
+.ad-tab-toggle {
+    display: flex;
+    background: #f5f5f5;
+    border-radius: 25px;
+    padding: 4px;
+    margin-bottom: 16px;
+}
+
+.ad-tab-btn {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 13px;
+    color: #666;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ad-tab-btn.active {
+    background: #1b4332;
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(27, 67, 50, 0.2);
+}
+
+/* CONTENT TABS */
+.ad-tab-content {
+    display: none;
+}
+
+.ad-tab-content.active {
+    display: block;
+}
+
+.ad-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 14px;
+}
+
+.ad-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ad-discount-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #e67e22;
+    color: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.ad-discount-tag.green-tag {
+    background: #27ae60;
+}
+
+.ad-details h4 {
+    margin: 0 0 6px 0;
+    font-size: 16px;
+    color: #222;
+}
+
+.ad-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1b4332;
+    margin-bottom: 8px;
+}
+
+.ad-price small {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 14px;
+    margin-left: 4px;
+}
+
+.per-tiffin {
+    font-size: 12px;
+    color: #666;
+    font-weight: normal;
+}
+
+.ad-details p {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.4;
+    margin-bottom: 16px;
+}
+
+.ad-cta-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.2s;
+}
+
+.ad-cta-btn:hover {
+    transform: translateY(-2px);
+}
+
+.buffet-btn {
+    background: linear-gradient(135deg, #1b4332, #2d6a4f);
+}
+
+.tiffin-btn {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+}
+</style>

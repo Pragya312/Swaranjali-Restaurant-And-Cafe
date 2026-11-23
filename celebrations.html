@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celebrations & Packages - Swaranjali Restaurants & Cafe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow-x: hidden;
+            font-family: 'Georgia', serif;
+            background: #2b080b;
+            color: #fff;
+        }
+
+        /* NAVIGATION BAR */
+        .navbar {
+            background: rgba(26, 15, 13, 0.98);
+            border-bottom: 1px solid rgba(229, 195, 120, 0.3);
+            padding: 12px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            position: relative;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-logo img {
+            height: 85px;
+            width: auto;
+            display: block;
+            transform: scale(1.6);
+            transform-origin: left center;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            font-family: sans-serif;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #E5C378;
+        }
+
+        .nav-btn {
+            background: #E5C378;
+            color: #2b080b !important;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* HERO SECTION WITH LOCAL BACKGROUND IMAGE */
+        .celebrations-hero {
+            width: 100%;
+            min-height: 500px;
+            /* Apni local image ka path yahan badlein (e.g., 'images/hero.jpg' ya 'images/hero_bg.png') */
+            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('herobg1.jpeg') center/cover no-repeat;
+            padding: 130px 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(229, 195, 120, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* THE SETTING SECTION */
+        .setting-section {
+            padding: 60px 0;
+            background: #2b080b;
+        }
+
+        .setting-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            background: rgba(45, 10, 14, 0.85);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid rgba(229, 195, 120, 0.3);
+        }
+
+        @media (max-width: 900px) {
+            .setting-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .setting-content h4 {
+            color: #E5C378;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            font-family: sans-serif;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .setting-content h2 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 20px;
+            font-weight: normal;
+            line-height: 1.2;
+        }
+
+        .setting-content p {
+            color: #d8c2be;
+            font-size: 1rem;
+            line-height: 1.7;
+            font-family: sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .setting-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* PACKAGES GRID */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
+
+        .package-card {
+            background: rgba(50, 12, 16, 0.85);
+            padding: 30px 24px;
+            border-radius: 12px;
+            border: 1px solid rgba(229, 195, 120, 0.3);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .package-card:hover {
+            border-color: #E5C378;
+            transform: translateY(-5px);
+        }
+
+        .package-card h3 {
+            color: #E5C378;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            font-weight: normal;
+        }
+
+        .guest-count {
+            display: inline-block;
+            background: rgba(229, 195, 120, 0.15);
+            color: #E5C378;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-family: sans-serif;
+            margin-bottom: 15px;
+        }
+
+        .package-card p {
+            color: #d8c2be;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            font-family: sans-serif;
+            margin-bottom: 20px;
+        }
+
+        /* INCLUSIONS BOX */
+        .package-includes-box {
+            background: rgba(45, 10, 14, 0.9);
+            border: 1px solid rgba(229, 195, 120, 0.3);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
+        .includes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .include-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #fff;
+            font-family: sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .include-item i {
+            color: #E5C378;
+        }
+
+        .cta-btn {
+            background: #E5C378;
+            color: #2b080b;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-family: sans-serif;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">
+            <img src="logo.png" alt="Swaranjali Logo">
+        </a>
+        <div class="nav-links">
+            <a href="index.html#home">Home</a>
+            <a href="index.html#about">About Us</a>
+            <a href="menu.html">Menu</a>
+            <a href="index.html#promotions">Buffet & Tiffins</a>
+            <a href="celebrations.html" class="active">Celebrations & Packages</a>
+            <a href="index.html#gallery">Gallery</a>
+            <a href="index.html#contact" class="nav-btn">Book A Table</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="celebrations-hero">
+        <div class="container">
+            <span style="color: #E5C378; font-size: 0.9rem; letter-spacing: 3px; font-weight: 600; text-transform: uppercase; text-shadow: 0 2px 4px rgba(0,0,0,0.6);">MEMORABLE EVENTS</span>
+            <h1 style="font-size: 3.5rem; color: #fff; margin: 15px 0; font-weight: normal; text-shadow: 0 2px 6px rgba(0,0,0,0.6);">Celebrations & Packages</h1>
+            <p style="color: #e0d5d3; font-size: 1.15rem; max-width: 650px; margin: 0 auto; font-family: sans-serif; text-shadow: 0 1px 3px rgba(0,0,0,0.6);">
+                Because every celebration deserves a Satvik Symphony.
+            </p>
+        </div>
+    </section>
+
+    <!-- THE SETTING SECTION -->
+    <section class="setting-section">
+        <div class="container">
+            <div class="setting-grid">
+                <div class="setting-content">
+                    <h4>The Setting</h4>
+                    <h2>A room that already feels like an occasion</h2>
+                    <p>Resturant in Connaught place, which makes them easy for a group to reach and easy to leave from: metro, and no traffic to plan around. Inside, the rooms are quiet and warm, with space for a long table or a set of smaller ones.</p>
+                    <p>Tell us the date, the number of guests and the kind of evening you have in mind. We will hold the right part of the room for you and keep the service unhurried.</p>
+                </div>
+                <div class="setting-image">
+                    <!-- Is image tag mein bhi aap apni local image Path de sakte hain -->
+                    <img src="image/Vibes.jpeg" alt="Restaurant Interior Setting">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DETAILED PACKAGES GRID -->
+    <section style="padding: 20px 0;">
+        <div class="container">
+            
+            <div class="packages-grid">
+                
+                <div class="package-card">
+                    <div>
+                        <h3>Kitty Parties</h3>
+                        <span class="guest-count">12–25 Guests</span>
+                        <p>Includes traditional Indian games, sattvic snacks, brassware setup & vibrant thematic décor tailored for joyous gatherings.</p>
+                    </div>
+                    <a href="index.html#contact" class="cta-btn" style="text-align: center;">Book Event</a>
+                </div>
+
+                <div class="package-card">
+                    <div>
+                        <h3>Corporate Lunches</h3>
+                        <span class="guest-count">10–50 Guests</span>
+                        <p>Curated fixed Thali menus, executive seating & a quiet, mindful ambiance ideal for business discussions and team dining.</p>
+                    </div>
+                    <a href="index.html#contact" class="cta-btn" style="text-align: center;">Book Event</a>
+                </div>
+
+                <div class="package-card">
+                    <div>
+                        <h3>Anniversaries & Celebrations</h3>
+                        <span class="guest-count">2–30 Guests</span>
+                        <p>Personalized table styling, welcome rituals, fresh floral accents & acoustic live melodies for your special milestone.</p>
+                    </div>
+                    <a href="index.html#contact" class="cta-btn" style="text-align: center;">Book Event</a>
+                </div>
+
+                <div class="package-card">
+                    <div>
+                        <h3>Themed Catering & Pujas</h3>
+                        <span class="guest-count">Outdoor & In-House</span>
+                        <p>Satvik food catering for weddings, temple events & pujas with traditional brassware plating and spiritual hosting.</p>
+                    </div>
+                    <a href="index.html#contact" class="cta-btn" style="text-align: center;">Book Event</a>
+                </div>
+
+            </div>
+
+            <!-- ALL INCLUSIONS BOX -->
+            <div class="package-includes-box">
+                <h3 style="color: #E5C378; font-size: 1.8rem; font-weight: normal; margin-bottom: 10px;">All Celebration Packages Include:</h3>
+                <p style="color: #d8c2be; font-family: sans-serif; font-size: 0.95rem;">Every event at Swaranjali is hosted with traditional grace and warmth.</p>
+                
+                <div class="includes-grid">
+                    <div class="include-item"><i class="fa-solid fa-check"></i> Elegant Table Styling & Floral Accents</div>
+                    <div class="include-item"><i class="fa-solid fa-check"></i> Theraputical Instrumental Music Integration</div>
+                    <div class="include-item"><i class="fa-solid fa-check"></i> Traditional Brassware Plating</div>
+                    <div class="include-item"><i class="fa-solid fa-check"></i> Custom Sattvic Menu Curation</div>
+                </div>
+
+                <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 25px;">
+                    <a href="index.html#contact" class="cta-btn">PLAN YOUR EVENT WITH US</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>
